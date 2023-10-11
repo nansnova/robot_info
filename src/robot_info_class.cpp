@@ -10,7 +10,7 @@ RobotInfo::RobotInfo(ros::NodeHandle &nh, const std::string &robot_description,
 
   // Create a publisher to publish RobotInfo messages on the "/robot_info"
   // topic.
-  robot_info_publisher =
+  robot_info_pub =
       nh.advertise<robotinfo_msgs::RobotInfo10Fields>("/robot_info", 1);
 }
 
@@ -20,7 +20,7 @@ void RobotInfo::publish_data() {
   set_data_fields();
 
   // Publish the RobotInfo message.
-  robot_info_publisher.publish(robot_info_msg);
+  robot_info_pub.publish(robot_info_msg);
 }
 
 // Set the data fields in the RobotInfo message.
