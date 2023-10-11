@@ -1,35 +1,33 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(robot_info)
 
-## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
   robotinfo_msgs
   roscpp
-)
+)  # Find required Catkin packages and components.
 
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES robot_info
-#  CATKIN_DEPENDS robotinfo_msgs roscpp
-#  DEPENDS system_lib
-)
+catkin_package()
 
 ###########
 ## Build ##
 ###########
 
-## Specify additional locations of header files
+# Include directories for header files.
 include_directories(
-  include/robot_info
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
+# Declare a C++ executable named "robot_info_node" and specify source files.
 add_executable(robot_info_node src/robot_info_class.cpp src/robot_info_main.cpp)
+# Link the "robot_info_node" executable with the necessary libraries and dependencies.
 target_link_libraries(robot_info_node
    ${catkin_LIBRARIES}
 )
 
+# Declare a C++ executable named "agv_robot_info_node" with source files.
 add_executable(agv_robot_info_node src/agv_robot_info_class.cpp src/agv_robot_info_main.cpp src/robot_info_class.cpp)
+# Link the "agv_robot_info_node" executable with the necessary libraries and dependencies.
 target_link_libraries(agv_robot_info_node
    ${catkin_LIBRARIES}
 )
