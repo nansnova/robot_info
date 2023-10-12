@@ -26,7 +26,7 @@ target_link_libraries(robot_info_node
 )
 
 # Declare a C++ executable named "agv_robot_info_node" with source files.
-add_executable(agv_robot_info_node src/agv_robot_info_class.cpp src/agv_robot_info_main.cpp src/robot_info_class.cpp)
+add_executable(agv_robot_info_node src/agv_robot_info_class.cpp src/agv_robot_info_main.cpp src/robot_info_class.cpp src/hydraulic_system_monitor.cpp)
 # Link the "agv_robot_info_node" executable with the necessary libraries and dependencies.
 target_link_libraries(agv_robot_info_node
    ${catkin_LIBRARIES}
